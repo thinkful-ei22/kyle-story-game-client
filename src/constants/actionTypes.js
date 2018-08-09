@@ -1,0 +1,6 @@
+export const MESSAGE = 'MESSAGE';
+export const SERVER_HELLO = 'SERVER_HELLO';
+export const SERVER_ADD_SENTENCE = 'SERVER_ADD_SENTENCE';
+export const ADD_SENTENCE = 'ADD_SENTENCE';
+export const ADD_STORIES = 'ADD_STORIES';
+export const NEXT_PROMPT = 'NEXT_PROMPT';
