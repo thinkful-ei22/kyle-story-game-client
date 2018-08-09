@@ -1,7 +1,11 @@
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
+
 import io from 'socket.io-client';
 import createSocketIoMiddleware from 'redux-socket.io';
+
+import createHistory from 'history/createBrowserHistory';
+import { routerMiddleware } from 'react-router-redux';
 
 import {WEBSOCKET_SERVER_URI} from './constants/websocket';
 import {rootReducer} from './reducers';
@@ -14,4 +18,8 @@ const pessimisticExecute = (action, emit, next, dispatch) => {
 let socketIoMiddleware = 
   createSocketIoMiddleware(socket, 'SERVER_', { execute: pessimisticExecute });
 
-export const store = createStore(rootReducer, applyMiddleware(socketIoMiddleware, thunk));
+const history = createHistory();
+
+const routingMiddleware = routerMiddleware(history);
+
+export const store = createStore(rootReducer, applyMiddleware(routingMiddleware, socketIoMiddleware, thunk));

@@ -9,11 +9,14 @@ export class StoryInput extends React.Component {
     values.author = this.props.playerName;
     values.storyId = this.props.currentStory.id;
     this.props.dispatch(serverAddSentence(values));
-    // this.props.dispatch(nextPrompt());
+    this.props.dispatch(nextPrompt());
     this.props.reset();
   }
 
   render() {
+
+    // TODO disable/hide input section if the prompt is the 'waiting' message
+
     return (
       <form
         id='storyInput'

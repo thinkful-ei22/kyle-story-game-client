@@ -36,17 +36,18 @@ export const storyReducer = (state = initialState, action) => {
   switch(action.type) {
   case types.ADD_STORIES:
     console.log('ADD_STORIES reduced');
-    console.log(action.stories);
+    // console.log(action.stories);
     return Object.assign({}, state, {
       stories: action.stories
     });
   case types.ADD_SENTENCE:
     console.log('ADD_SENTENCE reduced');
-    console.log(action);
+    // console.log(action);
+    // console.log(state);
     // console.log('currentStory: ', state.currentStory);
     return Object.assign({}, state, {
       stories: state.stories.map(story => {
-        console.log(story.id, action.storyId);
+        // console.log(story.id, action.storyId);
         if (story.id === action.storyId) {
           return ({
             id: story.id,
@@ -67,7 +68,7 @@ export const storyReducer = (state = initialState, action) => {
     });
   case types.NEXT_PROMPT:
     console.log('NEXT_PROMPT reduced');
-    return ({
+    return Object.assign({}, state, {
       currentStory: [...state.currentStory.slice(1)]
       // Object.assign(
       //   {},

@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 import { reducer as formReducer } from 'redux-form';
+import { routerReducer } from 'react-router-redux';
 
 import { handshakeReducer } from './handshake';
 import { playerReducer } from './player';
@@ -12,5 +13,6 @@ export const rootReducer = combineReducers({
   handshake: handshakeReducer,
   player: playerReducer,
   story: storyReducer,
-  gameSession: gameSessionReducer
+  gameSession: gameSessionReducer,
+  router: routerReducer
 });
