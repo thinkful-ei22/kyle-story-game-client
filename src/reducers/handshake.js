@@ -4,7 +4,7 @@ const initialState = {};
 
 export const handshakeReducer = (state = initialState, action) => {
   switch(action.type) {
-  case types.MESSAGE:
+  case types.HELLO:
     console.log(action.data);
     return Object.assign({}, state, {
       serverMessage: action.data

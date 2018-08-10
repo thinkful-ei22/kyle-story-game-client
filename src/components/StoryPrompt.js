@@ -23,7 +23,7 @@ export class StoryPrompt extends React.Component {
 const mapStateToProps = state => {
   const currentStory = state.story.currentStory[0];
   const sentences = currentStory
-    ? state.story.currentStory[0].sentences
+    ? currentStory.sentences
     : [{text: 'Waiting for the next player...'}];
   return {
     currentStory: state.story.currentStory[0],

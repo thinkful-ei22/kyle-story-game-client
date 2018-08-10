@@ -13,9 +13,15 @@ export class Game extends React.Component {
   }
 
   render() {
+
+    // if (!everyone is ready) {
+    //   return (
+    //     <LoadingScreen />
+    //   );
+    // }
+
     return (
       <div className="Game">
-        <h1>What's the Story?</h1>
         <h2>This is the Game component</h2>
         <h2>{this.props.playerName}</h2>
         <StoryPrompt />

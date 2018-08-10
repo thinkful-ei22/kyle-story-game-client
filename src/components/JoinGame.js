@@ -2,48 +2,40 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { reduxForm, Field, focus } from 'redux-form';
 import Input from './Input';
-import {serverAddSentence, nextPrompt} from '../actions/sentence';
+import { push } from 'react-router-redux';
 
-export class StoryInput extends React.Component {
+export class JoinGame extends React.Component {
+
   onSubmit(values) {
-    values.author = this.props.playerName;
-    values.storyId = this.props.currentStory.id;
-    this.props.dispatch(serverAddSentence(values));
-    this.props.dispatch(nextPrompt());
-    this.props.reset();
+    const roomCode = values.roomCode;
+    console.log(roomCode);
+    this.props.dispatch(push(`/${roomCode}`));
   }
 
   render() {
-
-    // TODO disable/hide input section if the prompt is the 'waiting' message
-    if (!this.props.currentStory) {
-      return (
-        <div></div>
-      );
-    }
-
     return (
       <form
-        id='storyInput'
+        id='joinGame'
         onSubmit={this.props.handleSubmit(values =>
           this.onSubmit(values)
         )}>
         <Field
           type='text'
-          id='sentence'
-          name='sentence'
-          label='Continue the story'
+          id='roomCode'
+          name='roomCode'
+          label='Enter Game Code to Join:'
           element='input'
           component={Input}
           /* TODO: validate={[length]} */
         />
         <button
           type='submit'
+          className='btn'
           disabled={
             this.props.pristine ||
             this.props.submitting
           }>
-          Send
+          Join Game
         </button>
       </form>
     );
@@ -51,15 +43,13 @@ export class StoryInput extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  playerName: state.player.name,
-  currentStory: state.story.currentStory[0]
 });
 
 // eslint-disable-next-line no-class-assign
-StoryInput = reduxForm({
-  form: 'storyInput',
+JoinGame = reduxForm({
+  form: 'joinGame',
   onSubmitFail: (errors, dispatch) =>
     dispatch(focus('contact', Object.keys(errors)[0]))
-})(StoryInput);
+})(JoinGame);
 
-export default connect(mapStateToProps)(StoryInput);
+export default connect(mapStateToProps)(JoinGame);

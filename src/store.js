@@ -7,7 +7,7 @@ import createSocketIoMiddleware from 'redux-socket.io';
 import createHistory from 'history/createBrowserHistory';
 import { routerMiddleware } from 'react-router-redux';
 
-import {WEBSOCKET_SERVER_URI} from './constants/websocket';
+import {WEBSOCKET_SERVER_URI} from './constants';
 import {rootReducer} from './reducers';
 
 let socket = io(WEBSOCKET_SERVER_URI);
