@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import StoryPrompt from './StoryPrompt.js';
 import StoryInput from './StoryInput.js';
+import LoadingScreen from './LoadingScreen';
 import { serverHello } from '../actions/sentence';
 
 export class Game extends React.Component {
@@ -14,11 +15,11 @@ export class Game extends React.Component {
 
   render() {
 
-    // if (!everyone is ready) {
-    //   return (
-    //     <LoadingScreen />
-    //   );
-    // }
+    if (!this.props.gameStarted) {
+      return (
+        <LoadingScreen />
+      );
+    }
 
     return (
       <div className="Game">
@@ -32,6 +33,8 @@ export class Game extends React.Component {
 }
 
 const mapStateToProps = state => ({
+  gameStarted: state.gameSession.started,
+  gameCompleted: state.gameSession.completed,
   playerName: state.player.name,
   clientMessage: state.handshake.clientMessage,
   serverMessage: state.handshake.serverMessage

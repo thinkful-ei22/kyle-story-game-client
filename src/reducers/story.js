@@ -39,6 +39,12 @@ export const storyReducer = (state = initialState, action) => {
     return Object.assign({}, state, {
       stories: action.stories
     });
+  case types.CREATE_GAME_SUCCESS:
+    console.log('CREATE_GAME_SUCCESS reduced (story)');
+    return Object.assign({}, state, {
+      upcoming: [],
+      stories: action.stories
+    });
   case types.ADD_SENTENCE:
     console.log('ADD_SENTENCE reduced');
     return Object.assign({}, state, {
