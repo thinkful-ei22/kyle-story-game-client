@@ -49,6 +49,10 @@ export const gameSessionReducer = (state = initialState, action) => {
       loading: false,
       error: action.error
     });
+  case types.FINISH_GAME:
+    return Object.assign({}, state, {
+      completed: true
+    });
   case types.SET_ROOM_CODE:
     console.log('SET_ROOM_CODE reduced');
     return Object.assign({}, state, {

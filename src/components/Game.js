@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import StoryPrompt from './StoryPrompt.js';
 import StoryInput from './StoryInput.js';
 import LoadingScreen from './LoadingScreen';
+import CompletionScreen from './CompletionScreen';
 import { serverHello } from '../actions/sentence';
 import { serverJoinRoom, addPlayerNameToStoryState } from '../actions/gameSession';
 
@@ -29,6 +30,12 @@ export class Game extends React.Component {
       );
     }
 
+    if (this.props.gameCompleted) {
+      return (
+        <CompletionScreen />
+      );
+    }
+
     return (
       <div className="Game">
         <h2>This is the Game component</h2>
@@ -44,7 +51,7 @@ const mapStateToProps = state => ({
   gameStarted: state.gameSession.started,
   gameCompleted: state.gameSession.completed,
   playerName: state.player.name,
-  roomCode: state.gameSession.roomCode,
+  roomCode: state.gameSession.roomCode || state.router.location.pathname.slice(1),
   clientMessage: state.handshake.clientMessage,
   serverMessage: state.handshake.serverMessage
 });

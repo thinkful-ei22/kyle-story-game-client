@@ -25,7 +25,7 @@ export class LoadingScreen extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  roomCode: state.gameSession.roomCode,
+  roomCode: state.gameSession.roomCode || state.router.location.pathname.slice(1),
   playerName: state.player.name
 });
 

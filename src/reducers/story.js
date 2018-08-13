@@ -27,7 +27,24 @@ export const storyReducer = (state = initialState, action) => {
     console.log('START_GAME_SUCCESS reduced (story)');
     console.log('number of stories: ', action.gameSession.stories.length);
     return Object.assign({}, state, {
-      stories: action.gameSession.stories
+      stories: action.gameSession.stories,
+      selectedStoryId: action.gameSession.stories[0].id
+    });
+  case types.JOIN_GAME_SUCCESS:
+    console.log('JOIN_GAME_SUCCESS reduced (story)');
+    console.log('action.stories: ', action.stories);
+    return Object.assign({}, state, {
+      stories: action.stories,
+      selectedStoryId: action.stories[0] ? action.stories[0].id : null
+    });
+  case types.FINISH_GAME:
+    console.log('FINISH_GAME reduced (story)');
+    return Object.assign({}, state, {
+      selectedStoryId: state.stories[0].id 
+    });
+  case types.SELECT_STORY:
+    return Object.assign({}, state, {
+      selectedStoryId: action.storyId
     });
   case types.ADD_SENTENCE_SUCCESS:
     console.log('ADD_SENTENCE_SUCCESS reduced');
@@ -41,7 +58,7 @@ export const storyReducer = (state = initialState, action) => {
             sentences: [
               ...story.sentences,
               {
-                sentence: action.sentence,
+                text: action.text,
                 author: action.author,
                 id: action.id
               }
@@ -68,10 +85,12 @@ export const storyReducer = (state = initialState, action) => {
     });
   // needed in this state in order to properly handle upcoming prompts
   case types.ADD_PLAYER_NAME_TO_STORY_STATE:
+    console.log('ADD_PLAYER_NAME_TO_STORY_STATE reduced');
     return Object.assign({}, state, {
       playerName: action.playerName
     });
   case types.ADD_INITIAL_PROMPT:
+    console.log('ADD_INITIAL_PROMPT reduced');
     if (state.playerName === action.receiver) {
       return Object.assign({}, state, {
         upcoming: [{
@@ -83,6 +102,7 @@ export const storyReducer = (state = initialState, action) => {
       return state;
     }
   case types.ADD_UPCOMING_PROMPT:
+    console.log('ADD_UPCOMING_PROMPT reduced');
     if (state.playerName === action.receiver) {
       return Object.assign({}, state, {
         upcoming: [

@@ -16,7 +16,7 @@ export class StoryInput extends React.Component {
 
   render() {
 
-    // TODO disable/hide input section if the prompt is the 'waiting' message
+    // disable/hide input section if the prompt is the 'waiting' message
     if (!this.props.upcoming) {
       return (
         <div></div>

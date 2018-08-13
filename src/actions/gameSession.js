@@ -114,3 +114,8 @@ export const addPlayerNameToStoryState = (playerName) => ({
   type: types.ADD_PLAYER_NAME_TO_STORY_STATE,
   playerName
 });
+
+export const selectStory = (storyId) => ({
+  type: types.SELECT_STORY,
+  storyId
+});
