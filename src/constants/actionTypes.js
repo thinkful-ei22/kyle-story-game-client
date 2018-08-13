@@ -7,12 +7,14 @@ export const CREATE_GAME_REQUESTED = 'CREATE_GAME_REQUESTED';
 export const CREATE_GAME_SUCCESS = 'CREATE_GAME_SUCCESS'; 
 export const CREATE_GAME_ERROR = 'CREATE_GAME_ERROR';
 export const SERVER_JOIN_ROOM = 'SERVER_JOIN_ROOM'; // add player to 'players' for the gameSession matching the roomCode, subscribe to the socket/room -OR- let the client know it's an invalid roomCode
-export const JOIN_ROOM = 'JOIN_ROOM'; // redirect to the Game LoadingScreen matching the submitted roomCode -OR- show a message that the roomCode doesn't exist and suggest creating a 'New Game'
+export const JOIN_ROOM_SUCCESS = 'JOIN_ROOM_SUCCESS'; // redirect to the Game LoadingScreen matching the submitted roomCode -OR- show a message that the roomCode doesn't exist and suggest creating a 'New Game'
+export const JOIN_ROOM_ERROR = 'JOIN_ROOM_ERROR';
+export const SERVER_JOIN_GAME = 'SERVER_JOIN_GAME';
+export const JOIN_GAME_SUCCESS = 'JOIN_GAME_SUCCESS';
 export const SERVER_LEAVE_ROOM = 'SERVER_LEAVE_ROOM'; // set player 'readyState' in db to false
 export const LEAVE_ROOM = 'LEAVE_ROOM'; // redirect back to home screen
 export const SERVER_START_GAME = 'SERVER_START_GAME'; // change 'started' flag in db to 'true'
 export const START_GAME = 'START_GAME'; // pass 'started' flag up to all clients in the gameSession
-
 export const START_GAME_REQUEST = 'START_GAME_REQUEST';
 export const START_GAME_SUCCESS = 'START_GAME_SUCCESS';
 export const START_GAME_ERROR = 'START_GAME_ERROR';
@@ -24,3 +26,5 @@ export const PLAYER_READY = 'PLAYER_READY'; // io.in('roomCode').emit('action', 
 // SINGLE ACTIONS
 export const ADD_STORIES = 'ADD_STORIES';
 export const NEXT_PROMPT = 'NEXT_PROMPT';
+export const SET_ROOM_CODE = 'SET_ROOM_CODE';
+export const UPDATE_PLAYERS = 'UPDATE_PLAYERS';

@@ -5,8 +5,15 @@ import StoryPrompt from './StoryPrompt.js';
 import StoryInput from './StoryInput.js';
 import LoadingScreen from './LoadingScreen';
 import { serverHello } from '../actions/sentence';
+import { serverJoinRoom } from '../actions/gameSession';
 
 export class Game extends React.Component {
+
+  componentWillMount() {
+    console.log('roomCode: ', this.props.roomCode);
+    console.log('playerName: ', this.props.playerName);
+    this.props.dispatch(serverJoinRoom(this.props.roomCode, this.props.playerName));
+  }
 
   componentDidMount() {
     console.log('Game component mounted');
@@ -36,6 +43,7 @@ const mapStateToProps = state => ({
   gameStarted: state.gameSession.started,
   gameCompleted: state.gameSession.completed,
   playerName: state.player.name,
+  roomCode: state.gameSession.roomCode,
   clientMessage: state.handshake.clientMessage,
   serverMessage: state.handshake.serverMessage
 });

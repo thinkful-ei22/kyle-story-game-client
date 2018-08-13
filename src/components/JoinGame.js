@@ -3,12 +3,14 @@ import { connect } from 'react-redux';
 import { reduxForm, Field, focus } from 'redux-form';
 import Input from './Input';
 import { push } from 'react-router-redux';
+import { setRoomCode } from '../actions/gameSession';
 
 export class JoinGame extends React.Component {
 
   onSubmit(values) {
     const roomCode = values.roomCode;
     console.log(roomCode);
+    this.props.dispatch(setRoomCode(roomCode));
     this.props.dispatch(push(`/${roomCode}`));
   }
 

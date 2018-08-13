@@ -10,9 +10,9 @@ import { gameSessionReducer } from './gameSession';
 
 export const rootReducer = combineReducers({
   form: formReducer,
-  handshake: handshakeReducer,
   player: playerReducer,
-  story: storyReducer,
   gameSession: gameSessionReducer,
-  router: routerReducer
+  handshake: handshakeReducer,
+  router: routerReducer,
+  story: storyReducer
 });

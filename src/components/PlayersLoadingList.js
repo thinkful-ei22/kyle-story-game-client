@@ -3,24 +3,30 @@ import { connect } from 'react-redux';
 
 import PlayerLoadingStatus from './PlayerLoadingStatus';
 
-export function PlayersLoadingList(props) {
+export class PlayersLoadingList extends React.Component {
 
-  const players = props.players.map(player => {
+  render() {
+    if (!this.props.players) {
+      return (<div>Players loading...</div>);
+    }
+  
+    const players = this.props.players.map(player => {
+      return (
+        <PlayerLoadingStatus
+          name={player.name} 
+          readyState={player.readyState}
+          key={player.id}
+          id={player.id}
+        />
+      );
+    });
+  
     return (
-      <PlayerLoadingStatus
-        name={player.name} 
-        readyState={player.readyState}
-        key={player.id}
-        id={player.id}
-      />
+      <ul className='playersLoadingList'>
+        {players}
+      </ul>
     );
-  });
-
-  return (
-    <ul className='playersLoadingList'>
-      {players}
-    </ul>
-  );
+  }
 }
 
 const mapStateToProps = state => ({

@@ -14,6 +14,7 @@ export const gameSessionReducer = (state = initialState, action) => {
     });
   case types.CREATE_GAME_SUCCESS:
     console.log('CREATE_GAME_SUCCESS reduced (gameSession)');
+    console.log('action.players: ', action.players);
     return Object.assign({}, state, {
       loading: false,
       error: null,
@@ -36,16 +37,44 @@ export const gameSessionReducer = (state = initialState, action) => {
     });
   case types.START_GAME_SUCCESS:
     console.log('START_GAME_SUCCESS reduced');
-    console.log(action.started);
+    console.log('started: ', action.gameSession.started);
     return Object.assign({}, state, {
       loading: false,
-      started: action.started
+      started: action.gameSession.started,
+      players: [...action.gameSession.players]
     });
   case types.START_GAME_ERROR:
     console.log('START_GAME_ERROR reduced');
     return Object.assign({}, state, {
       loading: false,
       error: action.error
+    });
+  case types.SET_ROOM_CODE:
+    return Object.assign({}, state, {
+      roomCode: action.roomCode
+    });
+  case types.JOIN_ROOM_ERROR:
+    console.log('JOIN_ROOM_ERROR reduced');
+    return Object.assign({}, state, {
+      loading: false,
+      error: action.error
+    });
+  case types.JOIN_GAME_SUCCESS:
+    console.log('JOIN_GAME_SUCCESS reduced (gameSession)');
+    console.log('action.players: ', action.players);
+    return Object.assign({}, state, {
+      loading: false,
+      error: null,
+      id: action.id,
+      roomCode: action.roomCode,
+      players: action.players,
+      started: action.started,
+      completed: action.completed
+    });
+  case types.UPDATE_PLAYERS:
+    console.log('UPDATE_PLAYERS reduced');
+    return Object.assign({}, state, {
+      players: [...action.players]
     });
   default:
     return state;
