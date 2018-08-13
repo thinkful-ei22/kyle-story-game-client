@@ -16,6 +16,7 @@ export const serverAddSentence = (values) => {
   console.log('serverAddSentence ran');
   return {
     type: types.SERVER_ADD_SENTENCE,
+    roomCode: values.roomCode,
     sentence: values.sentence,
     author: values.author,
     storyId: values.storyId

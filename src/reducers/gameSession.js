@@ -36,7 +36,7 @@ export const gameSessionReducer = (state = initialState, action) => {
       loading: true,
     });
   case types.START_GAME_SUCCESS:
-    console.log('START_GAME_SUCCESS reduced');
+    console.log('START_GAME_SUCCESS reduced (gameSession)');
     console.log('started: ', action.gameSession.started);
     return Object.assign({}, state, {
       loading: false,
@@ -50,6 +50,7 @@ export const gameSessionReducer = (state = initialState, action) => {
       error: action.error
     });
   case types.SET_ROOM_CODE:
+    console.log('SET_ROOM_CODE reduced');
     return Object.assign({}, state, {
       roomCode: action.roomCode
     });

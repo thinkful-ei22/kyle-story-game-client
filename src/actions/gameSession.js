@@ -109,3 +109,8 @@ export const serverJoinGame = (roomCode, playerName) => ({
   roomCode,
   playerName
 });
+
+export const addPlayerNameToStoryState = (playerName) => ({
+  type: types.ADD_PLAYER_NAME_TO_STORY_STATE,
+  playerName
+});

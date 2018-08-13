@@ -5,13 +5,14 @@ import StoryPrompt from './StoryPrompt.js';
 import StoryInput from './StoryInput.js';
 import LoadingScreen from './LoadingScreen';
 import { serverHello } from '../actions/sentence';
-import { serverJoinRoom } from '../actions/gameSession';
+import { serverJoinRoom, addPlayerNameToStoryState } from '../actions/gameSession';
 
 export class Game extends React.Component {
 
   componentWillMount() {
     console.log('roomCode: ', this.props.roomCode);
     console.log('playerName: ', this.props.playerName);
+    this.props.dispatch(addPlayerNameToStoryState(this.props.playerName));
     this.props.dispatch(serverJoinRoom(this.props.roomCode, this.props.playerName));
   }
 

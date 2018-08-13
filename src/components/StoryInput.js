@@ -1,13 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { reduxForm, Field, focus } from 'redux-form';
+import { reduxForm, Field } from 'redux-form';
 import Input from './Input';
 import {serverAddSentence, nextPrompt} from '../actions/sentence';
 
 export class StoryInput extends React.Component {
   onSubmit(values) {
     values.author = this.props.playerName;
-    values.storyId = this.props.currentStory.id;
+    values.storyId = this.props.upcoming.storyId;
+    values.roomCode = this.props.roomCode;
     this.props.dispatch(serverAddSentence(values));
     this.props.dispatch(nextPrompt());
     this.props.reset();
@@ -16,7 +17,7 @@ export class StoryInput extends React.Component {
   render() {
 
     // TODO disable/hide input section if the prompt is the 'waiting' message
-    if (!this.props.currentStory) {
+    if (!this.props.upcoming) {
       return (
         <div></div>
       );
@@ -52,14 +53,13 @@ export class StoryInput extends React.Component {
 
 const mapStateToProps = state => ({
   playerName: state.player.name,
-  currentStory: state.story.currentStory[0]
+  upcoming: state.story.upcoming[0],
+  roomCode: state.gameSession.roomCode
 });
 
 // eslint-disable-next-line no-class-assign
 StoryInput = reduxForm({
-  form: 'storyInput',
-  onSubmitFail: (errors, dispatch) =>
-    dispatch(focus('contact', Object.keys(errors)[0]))
+  form: 'storyInput'
 })(StoryInput);
 
 export default connect(mapStateToProps)(StoryInput);

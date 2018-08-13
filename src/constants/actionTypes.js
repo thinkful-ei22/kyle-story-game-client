@@ -19,12 +19,15 @@ export const START_GAME_REQUEST = 'START_GAME_REQUEST';
 export const START_GAME_SUCCESS = 'START_GAME_SUCCESS';
 export const START_GAME_ERROR = 'START_GAME_ERROR';
 export const SERVER_ADD_SENTENCE = 'SERVER_ADD_SENTENCE';
-export const ADD_SENTENCE = 'ADD_SENTENCE';
+export const ADD_SENTENCE_SUCCESS = 'ADD_SENTENCE_SUCCESS';
 export const SERVER_PLAYER_READY = 'SERVER_PLAYER_READY'; // set player 'readyState' in db to 'true' for the gameSession matching the passed in roomCode
 export const PLAYER_READY = 'PLAYER_READY'; // io.in('roomCode').emit('action', { type: 'PLAYER_READY', playerName }) - should change player to 'ready' on frontend
 
 // SINGLE ACTIONS
 export const ADD_STORIES = 'ADD_STORIES';
 export const NEXT_PROMPT = 'NEXT_PROMPT';
+export const ADD_INITIAL_PROMPT = 'ADD_INITIAL_PROMPT';
+export const ADD_UPCOMING_PROMPT = 'ADD_UPCOMING_PROMPT';
+export const ADD_PLAYER_NAME_TO_STORY_STATE = 'ADD_PLAYER_NAME_TO_STORY_STATE';
 export const SET_ROOM_CODE = 'SET_ROOM_CODE';
 export const UPDATE_PLAYERS = 'UPDATE_PLAYERS';

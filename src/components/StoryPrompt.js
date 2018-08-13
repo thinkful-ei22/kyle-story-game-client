@@ -8,7 +8,7 @@ export class StoryPrompt extends React.Component {
     // const sentences = this.props.currentStory.sentences.map((sentence, index) => <li key={index}>{sentence.text}</li>);
     return (
       <section className="storyPrompt">
-        <p>{this.props.incomingPrompt}</p>
+        <p>{this.props.upcomingPrompt}</p>
         {/* <p>Id: {this.props.currentStory.id}</p>
         <p>Creator: {this.props.currentStory.creator}</p>
         <p>sentences: </p>
@@ -21,14 +21,15 @@ export class StoryPrompt extends React.Component {
 }
 
 const mapStateToProps = state => {
-  const currentStory = state.story.currentStory[0];
-  const sentences = currentStory
-    ? currentStory.sentences
-    : [{text: 'Waiting for the next player...'}];
+  const upcoming = state.story.upcoming[0];
+  const prompt = upcoming
+    ? upcoming.prompt
+    : 'Waiting for the next player...';
   return {
-    currentStory: state.story.currentStory[0],
-    incomingPrompt: sentences[sentences.length - 1].text,
-    stories: state.story.stories
+    // currentStory: state.story.currentStory[0],
+    // incomingPrompt: sentences[sentences.length - 1].text,
+    upcomingPrompt: prompt
+    // stories: state.story.stories
   };};
 
 export default connect(mapStateToProps)(StoryPrompt);

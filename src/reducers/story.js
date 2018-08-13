@@ -1,35 +1,13 @@
 import * as types from '../constants/actionTypes';
 
 const initialState = {
-  /**
-   * Really just needs to be:
-   * upcoming: [
-   *   {
-   *     storyId: <storyId>,
-   *     prompt: <lastSentenceOfStoryId.text>
-   *   },
-   *   {
-   *     storyId: <nextStoryId>,
-   *     prompt: <lastSentenceOfNextStoryId.text>
-   *   }
-   * ]
-   */
-  currentStory: [{
-    id: '000000000000000000000001',
-    creator: 'nameOfPlayer1',
-    sentences: [
-      {
-        '_id': '111111111111111111110001',
-        'author': 'nameOfPlayer1',
-        'text': 'This is the first sentence of story 1.'
-      },
-      {
-        '_id': '111111111111111111110003',
-        'author': 'nameOfPlayer2',
-        'text': 'This is the second sentence of story 1.'
-      }
-    ]
-  }]
+  upcoming: [
+    {
+      storyId: 'test',
+      prompt: 'test'
+    }
+  ],
+  stories: []
 };
 
 export const storyReducer = (state = initialState, action) => {
@@ -45,8 +23,14 @@ export const storyReducer = (state = initialState, action) => {
       upcoming: [],
       stories: action.stories
     });
-  case types.ADD_SENTENCE:
-    console.log('ADD_SENTENCE reduced');
+  case types.START_GAME_SUCCESS:
+    console.log('START_GAME_SUCCESS reduced (story)');
+    console.log('number of stories: ', action.gameSession.stories.length);
+    return Object.assign({}, state, {
+      stories: action.gameSession.stories
+    });
+  case types.ADD_SENTENCE_SUCCESS:
+    console.log('ADD_SENTENCE_SUCCESS reduced');
     return Object.assign({}, state, {
       stories: state.stories.map(story => {
         // console.log(story.id, action.storyId);
@@ -71,7 +55,7 @@ export const storyReducer = (state = initialState, action) => {
   case types.NEXT_PROMPT:
     console.log('NEXT_PROMPT reduced');
     return Object.assign({}, state, {
-      currentStory: [...state.currentStory.slice(1)]
+      upcoming: [...state.upcoming.slice(1)]
       // Object.assign(
       //   {},
       //   state.stories.find(story => {
@@ -82,6 +66,36 @@ export const storyReducer = (state = initialState, action) => {
       //   })
       // )
     });
+  // needed in this state in order to properly handle upcoming prompts
+  case types.ADD_PLAYER_NAME_TO_STORY_STATE:
+    return Object.assign({}, state, {
+      playerName: action.playerName
+    });
+  case types.ADD_INITIAL_PROMPT:
+    if (state.playerName === action.receiver) {
+      return Object.assign({}, state, {
+        upcoming: [{
+          storyId: action.storyId,
+          prompt: action.prompt
+        }]
+      });
+    } else {
+      return state;
+    }
+  case types.ADD_UPCOMING_PROMPT:
+    if (state.playerName === action.receiver) {
+      return Object.assign({}, state, {
+        upcoming: [
+          ...state.upcoming,
+          {
+            storyId: action.storyId,
+            prompt: action.prompt
+          }
+        ]
+      });
+    } else {
+      return state;
+    }
   default:
     return state;
   }
