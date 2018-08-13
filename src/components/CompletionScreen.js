@@ -7,8 +7,7 @@ import StoryDisplay from './StoryDisplay';
 export function CompletionScreen(props) {
   return (
     <div>
-      <h2>This is the CompletionScreen</h2>
-      <h3>GAME COMPLETED</h3>
+      <h2>GAME COMPLETED</h2>
       <StorySelector />
       <StoryDisplay />
     </div>

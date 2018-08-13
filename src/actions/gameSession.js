@@ -20,7 +20,6 @@ export const createGameError = (error) => ({
 });
 export const createNewGame = values => dispatch => {
   dispatch(createGameRequested());
-  // console.log(values);
   fetch(API_SERVER_URL, {
     method: 'POST',
     body: JSON.stringify(values),
@@ -36,7 +35,6 @@ export const createNewGame = values => dispatch => {
       return res.json();
     })
     .then(gameSession => {
-      console.log(gameSession);
       dispatch(createGameSuccess(gameSession));
       return gameSession;
     })
@@ -44,7 +42,6 @@ export const createNewGame = values => dispatch => {
       dispatch(push(`/${gameSession.roomCode}`));
     })
     .catch(err => {
-      console.log(err);
       dispatch(createGameError(err));
     });
 };
@@ -57,40 +54,24 @@ export const serverStartGame = (roomCode) => ({
   roomCode
 });
 
-// IMPLEMENTED SERVER SIDE
-// export const startGameSuccess = (gameSession) => ({
-//   type: types.START_GAME_SUCCESS,
-//   started: gameSession.started
-// });
-// export const startGameError = (error) => ({
-//   type: types.START_GAME_ERROR,
-//   error
-// });
 export const startGame = (roomCode) => dispatch => {
   dispatch(startGameRequest());
   dispatch(serverStartGame(roomCode));
 
   /**
      * TODO:
-     * figure out if this should still be a 'PUT' request
-     *   or sent via socket. Need to update the state for everyone,
-     *   so probably needs to be done via socket.
-     * 
-     * figure out structure for how to make this 
-     *   socket dispatch 'thenable'. Maybe the 'REQUEST' and
-     *   'SERVER' version are dispatched here and the server 
-     *   responds with either the 'success' or 'error' version
      * 
      * also look at 'redux-persist' so that users can reload
      *   the page without crashing once they've joined a room
      * 
      * users should also be able to just navigate to '/roomCode'
      *   and be able to join the game. App should first check to
-     *   see if they have session data in localhost, and 
+     *   see if they have session data in localhost (roomCode 
+     *   pulled from url, but need to store playerName?), and 
      *   add them as a new player if not (only if game has not
-     *   started). if game started, should get a message that 
+     *   started). if game in progress, should get a message that 
      *   'players cannot join a game in progress. wait for the 
-     *    next round!'
+     *    next round!'. if game completed, allow browsing stories
      */
 };
 

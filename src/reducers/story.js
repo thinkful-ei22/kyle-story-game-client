@@ -83,8 +83,8 @@ export const storyReducer = (state = initialState, action) => {
       //   })
       // )
     });
-  // needed in this state in order to properly handle upcoming prompts
   case types.ADD_PLAYER_NAME_TO_STORY_STATE:
+    // needed in this state in order to properly handle upcoming prompts
     console.log('ADD_PLAYER_NAME_TO_STORY_STATE reduced');
     return Object.assign({}, state, {
       playerName: action.playerName

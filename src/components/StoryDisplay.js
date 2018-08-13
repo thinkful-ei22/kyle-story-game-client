@@ -11,7 +11,7 @@ export function StoryDisplay(props) {
     </li>
   ));
   return (
-    <section>
+    <section role='section'>
       <p>Started by: {props.selectedStory.creator}</p>
       <ul>
         {storySentences}
