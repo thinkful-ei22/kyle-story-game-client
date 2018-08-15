@@ -6,13 +6,15 @@ import StoryInput from './StoryInput.js';
 import LoadingScreen from './LoadingScreen';
 import CompletionScreen from './CompletionScreen';
 import { serverHello } from '../actions/sentence';
-import { serverJoinRoom, addPlayerNameToStoryState } from '../actions/gameSession';
+import { serverJoinRoom, storePlayerName, addPlayerNameToStoryState, loadPlayerName } from '../actions/gameSession';
 
 export class Game extends React.Component {
 
   componentWillMount() {
     console.log('roomCode: ', this.props.roomCode);
     console.log('playerName: ', this.props.playerName);
+    // this.props.dispatch(storePlayerName(this.props.playerName));
+    this.props.dispatch(loadPlayerName());
     this.props.dispatch(addPlayerNameToStoryState(this.props.playerName));
     this.props.dispatch(serverJoinRoom(this.props.roomCode, this.props.playerName));
   }
@@ -20,6 +22,10 @@ export class Game extends React.Component {
   componentDidMount() {
     console.log('Game component mounted');
     this.props.dispatch(serverHello());
+  }
+
+  componentWillUnmount() {
+    this.props.dispatch(storePlayerName(this.props.playerName));
   }
 
   render() {

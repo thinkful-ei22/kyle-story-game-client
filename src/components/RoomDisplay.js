@@ -1,11 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import './roomDisplay.css';
+
 export function RoomDisplay(props) {
   return (
     <div className='roomDisplay'>
       <h2 className='roomCode'>Code: {props.roomCode}</h2>
-      <p>(Share this code so others can join!)</p>
+      <span>(Share this code so others can join!)</span>
     </div>
   );
 }

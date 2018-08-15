@@ -76,6 +76,12 @@ export const gameSessionReducer = (state = initialState, action) => {
       started: action.started,
       completed: action.completed
     });
+  case types.JOIN_GAME_ERROR:
+    console.log('JOIN_GAME_ERROR reduced (gameSession)');
+    console.log('action.error: ', action.error);
+    return Object.assign({}, state, {
+      error: action.error
+    });
   case types.UPDATE_PLAYERS:
     console.log('UPDATE_PLAYERS reduced');
     return Object.assign({}, state, {

@@ -13,20 +13,29 @@ export class LoadingScreen extends React.Component {
   }
 
   render() {
-    return (
-      <div className='loadingScreen'>
-        <h2>LOADING...</h2>
-        <RoomDisplay />
-        <PlayersLoadingList />
-        <StartGameButton />
-      </div>
-    );
+    if (this.props.error) {
+      return (
+        <div className='error'>
+          {this.props.error}
+        </div>
+      );
+    } else {
+      return (
+        <div className='loadingScreen'>
+          <RoomDisplay />
+          <PlayersLoadingList />
+          <h3>Waiting for more players...</h3>
+          <StartGameButton />
+        </div>
+      );
+    }
   }
 }
 
 const mapStateToProps = state => ({
   roomCode: state.gameSession.roomCode || state.router.location.pathname.slice(1),
-  playerName: state.player.name
+  playerName: state.player.name,
+  error: state.gameSession.error
 });
 
 export default connect(mapStateToProps)(LoadingScreen);

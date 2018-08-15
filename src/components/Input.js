@@ -1,5 +1,9 @@
 import React from 'react';
 
+import './input.css';
+import Row from './Row';
+import Column from './Column';
+
 export default class Input extends React.Component {
   componentDidUpdate(prevProps) {
     if (!prevProps.meta.active && this.props.meta.active) {
@@ -22,21 +26,34 @@ export default class Input extends React.Component {
     }
 
     return (
-      <div className="form-input">
-        <label htmlFor={this.props.input.name}>
-          {this.props.label}
-          {error}
-          {warning}
-        </label>
-        <Element
-          {...this.props.input}
-          id={this.props.input.name}
-          type={this.props.type}
-          ref={input => (this.input = input)}
-        >
-          {this.props.children}
-        </Element>
-      </div>
+      <React.Fragment>
+        <Row>
+          <Column columnWidth='col-4'>
+            <label 
+              htmlFor={this.props.input.name}
+              className={this.props.labelClass}
+            >
+              {this.props.label}
+              {error}
+              {warning}
+            </label>
+          </Column>
+        </Row>
+        <Row>
+          <Column columnWidth='col-4'>
+            <Element
+              {...this.props.input}
+              id={this.props.input.name}
+              placeholder={this.props.placeholder}
+              className={this.props.elementClass}
+              type={this.props.type}
+              ref={input => (this.input = input)}
+            >
+              {this.props.children}
+            </Element>
+          </Column>
+        </Row>
+      </React.Fragment>
     );
   }
 }

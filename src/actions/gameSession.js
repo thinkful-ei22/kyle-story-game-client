@@ -2,6 +2,8 @@ import * as types from '../constants/actionTypes';
 import { API_SERVER_URL } from '../constants';
 import { push } from 'react-router-redux';
 
+const chance = require('chance').Chance();
+
 export const createGameRequested = () => ({
   type: types.CREATE_GAME_REQUESTED
 });
@@ -90,6 +92,21 @@ export const serverJoinGame = (roomCode, playerName) => ({
   roomCode,
   playerName
 });
+
+export const loadPlayerName = () => ({
+  type: types.LOAD_PLAYER_NAME
+});
+
+export const storePlayerName = (playerName) => ({
+  type: types.SET_PLAYER_NAME,
+  playerName
+});
+
+export const refreshPlayerName = () => dispatch => {
+  const playerName = chance.first();
+
+  dispatch(storePlayerName(playerName));
+};
 
 export const addPlayerNameToStoryState = (playerName) => ({
   type: types.ADD_PLAYER_NAME_TO_STORY_STATE,

@@ -13,11 +13,15 @@ import createHistory from 'history/createBrowserHistory';
 import io from 'socket.io-client';
 import createSocketIoMiddleware from 'redux-socket.io';
 
+import 'normalize.css';
+import 'font-awesome/css/font-awesome.css';
+import './float-grid.css';
 import './index.css';
 import Game from './components/Game';
 import NewGame from './components/NewGame';
 import {WEBSOCKET_SERVER_URI} from './constants';
 import {rootReducer} from './reducers';
+import LocalStorage from './middlewares/localStorage';
 import registerServiceWorker from './registerServiceWorker';
 
 let socket = io(WEBSOCKET_SERVER_URI);
@@ -33,17 +37,17 @@ const routingMiddleware = routerMiddleware(history);
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = createStore(rootReducer, composeEnhancers(
-  applyMiddleware(routingMiddleware, socketIoMiddleware, thunk))
+  applyMiddleware(routingMiddleware, socketIoMiddleware, LocalStorage, thunk))
 );
 
 ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
-      <div>
+      <main>
         <h1>What's the Story?</h1>
         <Route exact path='/' component={NewGame} />
         <Route exact path='/:roomCode' component={Game} />
-      </div>
+      </main>
     </ConnectedRouter>
   </Provider>,
   document.getElementById('root'));

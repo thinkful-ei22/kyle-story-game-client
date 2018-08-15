@@ -1,0 +1,9 @@
+.loadingScreen {
+  margin: 0 auto;
+}
+.roomDisplayContainer {
+  width: 90%;
+}
+.loadingScreen h3 {
+  text-align: center;
+}

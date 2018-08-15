@@ -2,6 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { startGame } from '../actions/gameSession';
 
+import Row from './Row';
+import Column from './Column';
+
 export class StartGameButton extends React.Component {
   
   onClick() {
@@ -11,12 +14,16 @@ export class StartGameButton extends React.Component {
 
   render() {
     return (
-      <button
-        className='start'
-        onClick={() => this.onClick()}
-      >
-        Start Game
-      </button>
+      <Row>
+        <Column columnWidth='col-6'>
+          <button
+            className='btn btn--start-game'
+            onClick={() => this.onClick()}
+          >
+            Start Game
+          </button>
+        </Column>
+      </Row>
     );
   }
 }
