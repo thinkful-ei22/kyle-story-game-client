@@ -1,10 +1,5 @@
 import * as types from '../constants/actionTypes';
 
-export const serverHello = () => ({
-  type: types.SERVER_HELLO,
-  data: 'Hello from the Client!'
-});
-
 export const nextPrompt = () => {
   console.log('nextPrompt ran');
   return {

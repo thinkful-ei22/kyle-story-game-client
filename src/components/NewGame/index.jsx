@@ -4,16 +4,12 @@ import { connect } from 'react-redux';
 import JoinGame from './JoinGame';
 import CreateGame from './CreateGame';
 
-import { refreshPlayerName, storePlayerName } from '../actions/gameSession';
+import { refreshPlayerName } from '../../actions/gameSession';
 
 export class NewGame extends React.Component {
 
   componentWillMount() {
     this.props.dispatch(refreshPlayerName());
-  }
-
-  componentWillUnmount() {
-    // this.props.dispatch(storePlayerName);
   }
 
   render() {

@@ -1,8 +1,8 @@
 import React from 'react';
 
 import './input.css';
-import Row from './Row';
-import Column from './Column';
+import Row from '../grid/Row';
+import Column from '../grid/Column';
 
 export default class Input extends React.Component {
   componentDidUpdate(prevProps) {

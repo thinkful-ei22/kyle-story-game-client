@@ -4,10 +4,10 @@ import { reduxForm, Field, focus } from 'redux-form';
 import { push } from 'react-router-redux';
 
 import './joinGame.css';
-import Input from './Input';
-import Row from './Row';
-import Column from './Column';
-import { setRoomCode } from '../actions/gameSession';
+import Input from '../../utils/Input';
+import Row from '../../utils/grid/Row';
+import Column from '../../utils/grid/Column';
+import { setRoomCode } from '../../../actions/gameSession';
 
 export class JoinGame extends React.Component {
 

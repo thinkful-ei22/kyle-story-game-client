@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import { reduxForm, focus } from 'redux-form';
 
 import './createGame.css';
-import Row from './Row';
-import Column from './Column';
-import {createNewGame} from '../actions/gameSession';
+import Row from '../../utils/grid/Row';
+import Column from '../../utils/grid/Column';
+import {createNewGame} from '../../../actions/gameSession';
 
 export class CreateGame extends React.Component {
 

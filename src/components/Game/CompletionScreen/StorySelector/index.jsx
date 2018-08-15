@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { selectStory } from '../actions/gameSession';
+import { selectStory } from '../../../../actions/gameSession';
 
 export class StorySelector extends React.Component {
 

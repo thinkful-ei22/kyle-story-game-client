@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { startGame } from '../actions/gameSession';
+import { startGame } from '../../../../actions/gameSession';
 
-import Row from './Row';
-import Column from './Column';
+import Row from '../../../utils/grid/Row';
+import Column from '../../../utils/grid/Column';
 
 export class StartGameButton extends React.Component {
   

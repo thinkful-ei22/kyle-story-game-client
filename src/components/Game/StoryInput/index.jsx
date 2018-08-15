@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { reduxForm, Field } from 'redux-form';
-import Input from './Input';
-import {serverAddSentence, nextPrompt} from '../actions/sentence';
+import Input from '../../utils/Input';
+import {serverAddSentence, nextPrompt} from '../../../actions/sentence';
 
 export class StoryInput extends React.Component {
   onSubmit(values) {

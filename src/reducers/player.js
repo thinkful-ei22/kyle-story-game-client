@@ -1,12 +1,6 @@
 import * as types from '../constants/actionTypes';
 
-const chance = require('chance').Chance();
-
-// const playerName = localStorage.getItem('playerName') || chance.first();
-
-const initialState = {
-  // name: playerName
-};
+const initialState = {};
 
 export const playerReducer = (state = initialState, action) => {
   switch(action.type) {

@@ -32,6 +32,13 @@
       "no-eval": "error",            //disallows `eval()` usage
       "indent": ["error", 2],        //enforce 2 space indents (not tabs)        
       "quotes": ["error", "single"], //prefer single quotes over double quotes
-      "semi": ["error", "always"]    //enforce semi-colon usage
+      "semi": ["error", "always"],    //enforce semi-colon usage
+      "jsx-a11y/label-has-for": [ 2, {
+        "components": [ "Label" ],
+        "required": {
+            "some": [ "nesting", "id" ]
+        },
+        "allowChildren": false
+    }]
   }
 }
