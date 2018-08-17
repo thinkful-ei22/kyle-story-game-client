@@ -1,10 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import Row from '../Row';
+import Header from './index';
 
-describe('<Row />', () => {
+describe('<Header />', () => {
   it('should render without crashing', () => {
-    const wrapper = shallow(<Row />);
+    const wrapper = shallow(<Header />);
   });
 });

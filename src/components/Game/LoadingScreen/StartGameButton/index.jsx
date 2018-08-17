@@ -2,8 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { startGame } from '../../../../actions/gameSession';
 
-import Row from '../../../utils/grid/Row';
-import Column from '../../../utils/grid/Column';
+import './startGameButton.css';
 
 export class StartGameButton extends React.Component {
   
@@ -14,16 +13,14 @@ export class StartGameButton extends React.Component {
 
   render() {
     return (
-      <Row>
-        <Column columnWidth='col-6'>
-          <button
-            className='btn btn--start-game'
-            onClick={() => this.onClick()}
-          >
+      <div className='start-container'>
+        <button
+          className='btn btn--start-game'
+          onClick={() => this.onClick()}
+        >
             Start Game
-          </button>
-        </Column>
-      </Row>
+        </button>
+      </div>
     );
   }
 }

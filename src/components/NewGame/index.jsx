@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import './newGame.css';
 import JoinGame from './JoinGame';
 import CreateGame from './CreateGame';
 
@@ -14,9 +15,11 @@ export class NewGame extends React.Component {
 
   render() {
     return (
-      <div className='newGame'>
-        <JoinGame />
-        <CreateGame />
+      <div className='newGameContainer'>
+        <div className='newGame'>
+          <JoinGame />
+          <CreateGame />
+        </div>
       </div>
     );
   }

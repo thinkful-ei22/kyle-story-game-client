@@ -16,6 +16,7 @@ export const START_GAME_SUCCESS = 'START_GAME_SUCCESS';
 export const START_GAME_ERROR = 'START_GAME_ERROR';
 export const SERVER_ADD_SENTENCE = 'SERVER_ADD_SENTENCE';
 export const ADD_SENTENCE_SUCCESS = 'ADD_SENTENCE_SUCCESS';
+export const ADD_SENTENCE_ERROR = 'ADD_SENTENCE_ERROR';
 export const SERVER_PLAYER_READY = 'SERVER_PLAYER_READY'; // set player 'readyState' in db to 'true' for the gameSession matching the passed in roomCode
 export const PLAYER_READY = 'PLAYER_READY'; // io.in('roomCode').emit('action', { type: 'PLAYER_READY', playerName }) - should change player to 'ready' on frontend
 

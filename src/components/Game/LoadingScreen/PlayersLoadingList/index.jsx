@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import './playersLoadingList.css';
 import PlayerLoadingStatus from './PlayerLoadingStatus';
 
 export class PlayersLoadingList extends React.Component {

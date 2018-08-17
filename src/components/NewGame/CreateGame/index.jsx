@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 import { reduxForm, focus } from 'redux-form';
 
 import './createGame.css';
-import Row from '../../utils/grid/Row';
-import Column from '../../utils/grid/Column';
 import {createNewGame} from '../../../actions/gameSession';
 
 export class CreateGame extends React.Component {
@@ -22,29 +20,21 @@ export class CreateGame extends React.Component {
 
     return (
       <div className='container'>
-        <Row>
-          <Column columnWidth='col-6'>
-            {loading}
-          </Column>
-        </Row>
+        {loading}
         <form
           id='createGame'
           onSubmit={this.props.handleSubmit(values =>
             this.onSubmit(values)
           )}>
-          <Row>
-            <Column columnWidth='col-3'>
-              <button
-                type='submit'
-                className='btn btn--create-game'
-                disabled={
-                  this.props.submitting ||
+          <button
+            type='submit'
+            className='btn btn--create-game'
+            disabled={
+              this.props.submitting ||
               this.props.loading
-                }>
+            }>
                 New Game
-              </button>
-            </Column>
-          </Row>
+          </button>
         </form>
       </div>
     );

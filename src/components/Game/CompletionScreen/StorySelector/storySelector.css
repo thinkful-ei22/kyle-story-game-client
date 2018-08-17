@@ -1,0 +1,23 @@
+.clearfix::after {
+  content: '';
+  clear: left;
+  display: table;
+}
+.storySelector span {
+  color: hsla(279, 90%, 10%, 0.95);
+  font-weight: bold;
+}
+.storySelector ul {
+  padding: 0;
+  margin: 5px 0;
+}
+button.btn--story-selector {
+  /* width: 5px; */
+  float: left;
+  /* display: inline-block; */
+  margin-right: .3em;
+  min-width: 5px;
+  max-width: 100%;
+  padding: 5px;
+  border-radius: 5px;
+}

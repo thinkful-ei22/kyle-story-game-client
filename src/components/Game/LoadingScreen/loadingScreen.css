@@ -1,9 +1,9 @@
 .loadingScreen {
   margin: 0 auto;
 }
-.roomDisplayContainer {
-  width: 90%;
-}
-.loadingScreen h3 {
+.waitingMessage {
   text-align: center;
+  color: hsla(279, 90%, 5%, 0.95);
+  text-shadow: 0 0 75px hsla(279, 90%, 75%, 0.95);
+
 }

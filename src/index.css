@@ -1,18 +1,47 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans|Permanent+Marker');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Rubik:700');
 
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
 body {
+  background-color: hsl(259, 42%, 15%);
+  color: white;
+  font-family: 'Open Sans', sans-serif;
   margin: 0;
   padding: 0;
-  font-family: 'Open Sans', sans-serif;
 }
 h1 {
-  font-size: 40px;
+  background-color: hsl(170, 52%, 42%);
+  color: white;
+  font-family: 'Rubik', cursive;
+  font-size: 2.15em;
+  margin: 0;
+  padding: 10px 0 10px;
   text-align: center;
-  font-family: 'Permanent Marker', cursive;
+  text-shadow: 1px 2px 20px hsl(171, 98%, 16%);
+}
+ul {
+  list-style: none;
 }
 .btn {
-  border-radius: 5px;
-  background-color: transparent;
+  background-color: hsl(28, 99%, 64%);
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px hsla(259, 92%, 25%, 0.6),
+              1px 3px 18px hsla(259, 92%, 25%, 0.6);
+  font-weight: bold;
   padding: 20px;
-  width: 100%;
+  text-transform: uppercase;
+  min-width: 256px;
+  max-width: 300px;
+}
+.btn:active {
+  box-shadow: 0 2px 2px hsla(259, 92%, 25%, 0.3),
+              1px 3px 6px hsla(259, 92%, 25%, 0.3);
+}
+.btn:disabled {
+  background-color: hsla(41, 59%, 84%, 75%);
 }

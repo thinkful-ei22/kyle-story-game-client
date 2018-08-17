@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import './loadingScreen.css';
 import RoomDisplay from './RoomDisplay';
 import PlayersLoadingList from './PlayersLoadingList';
 import StartGameButton from './StartGameButton';
@@ -28,7 +29,7 @@ export class LoadingScreen extends React.Component {
         <div className='loadingScreen'>
           <RoomDisplay />
           <PlayersLoadingList />
-          <h3>Waiting for more players...</h3>
+          <h3 className='waitingMessage'>Waiting for more players...</h3>
           <StartGameButton />
         </div>
       );

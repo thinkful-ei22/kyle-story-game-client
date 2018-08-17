@@ -4,9 +4,8 @@ import { reduxForm, Field, focus } from 'redux-form';
 import { push } from 'react-router-redux';
 
 import './joinGame.css';
+import { roomCodeLength } from '../../../validators';
 import Input from '../../utils/Input';
-import Row from '../../utils/grid/Row';
-import Column from '../../utils/grid/Column';
 import { setRoomCode } from '../../../actions/gameSession';
 
 export class JoinGame extends React.Component {
@@ -25,8 +24,6 @@ export class JoinGame extends React.Component {
    *   probably just need to implement something in the client to 
    *   handle 'JOIN_ROOM_ERROR' & 'JOIN_GAME_ERROR' from server
    * 
-   * TODO:  
-   * save name to localStorage so refreshing doesn't break the game
    */
 
   render() {
@@ -41,27 +38,22 @@ export class JoinGame extends React.Component {
             type='text'
             id='roomCode'
             name='roomCode'
-            labelClass='roomCodeInputLabel'
-            elementClass='roomCodeInput'
             label='Room Code'
             placeholder='Enter a Room Code'
             element='input'
             component={Input}
-            /* TODO: validate={[roomCodeLength]} */
+            validate={[roomCodeLength]}
           />
-          <Row>
-            <Column columnWidth='col-3'>
-              <button
-                type='submit'
-                className='btn btn--join-game'
-                disabled={
-                  this.props.pristine ||
+          <button
+            type='submit'
+            className='btn btn--join-game'
+            disabled={
+              this.props.pristine ||
                 this.props.submitting
-                }>
-              Join Game
-              </button>
-            </Column>
-          </Row>
+            }
+          >
+            Join Game
+          </button>
         </form>
       </div>
     );

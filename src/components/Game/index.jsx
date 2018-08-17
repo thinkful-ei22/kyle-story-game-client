@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import './game.css';
 import StoryPrompt from './StoryPrompt';
 import StoryInput from './StoryInput';
 import LoadingScreen from './LoadingScreen';
@@ -22,25 +23,31 @@ export class Game extends React.Component {
   }
 
   render() {
+    let contents = (
+      <React.Fragment>
+        <StoryPrompt />
+        <StoryInput />
+      </React.Fragment>
+    );
 
     if (!this.props.gameStarted) {
-      return (
+      contents = (
         <LoadingScreen />
       );
     }
 
     if (this.props.gameCompleted) {
-      return (
+      contents = (
         <CompletionScreen />
       );
     }
 
     return (
-      <div className="Game">
-        <h2>This is the Game component</h2>
-        <h2>{this.props.playerName}</h2>
-        <StoryPrompt />
-        <StoryInput />
+      <div className='gameContainer'>
+        <div className="Game">
+          <h2 className='playerName'><span>name: </span>{this.props.playerName}</h2>
+          {contents}
+        </div>
       </div>
     );
   }
@@ -50,7 +57,8 @@ const mapStateToProps = state => ({
   gameStarted: state.gameSession.started,
   gameCompleted: state.gameSession.completed,
   playerName: state.player.name,
-  roomCode: state.gameSession.roomCode || state.router.location.pathname.slice(1)
+  roomCode: state.gameSession.roomCode || state.router.location.pathname.slice(1),
+  error: state.gameSession.error || state.story.error
 });
 
 export default connect(mapStateToProps)(Game);

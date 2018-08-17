@@ -1,3 +1,6 @@
 .btn--create-game {
   margin-top: 60%;
 }
+#createGame {
+  text-align: center;
+}

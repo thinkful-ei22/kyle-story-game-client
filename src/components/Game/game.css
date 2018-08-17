@@ -1,0 +1,19 @@
+.gameContainer {
+  min-height: 400px;
+  padding: 1em;
+}
+.Game {
+  background-color: hsl(272, 58%, 53%);
+  border-radius: 1em;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1em;
+}
+.playerName {
+  text-align: right;
+  margin: 8px 20px;
+}
+.playerName span {
+  font-size: .7em;
+  color: hsla(279, 90%, 10%, 0.95);
+}

@@ -1,10 +1,12 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
+import './storyPrompt.css';
+
 export function StoryPrompt(props) {
   return (
-    <section className="storyPrompt">
-      <p>{props.upcomingPrompt}</p>
+    <section className="card storyPrompt">
+      <p><span className='prompt'>Prompt:</span> {props.upcomingPrompt}</p>
     </section>
   );
 }

@@ -1,6 +1,12 @@
 .roomDisplay {
   text-align: center;
 }
+.roomDisplay span {
+  font-size: 2vh;
+  color: hsla(279, 90%, 5%, 0.95);
+}
 .roomCode {
   margin-bottom: 5px;
+  font-size: 2em;
+  font-weight: 700;
 }

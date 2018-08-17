@@ -1,0 +1,13 @@
+.story {
+  padding-left: 0;
+}
+.storyDisplay p {
+  font-weight: bold;
+}
+.startedBy {
+  color: hsla(279, 90%, 10%, 0.95);
+  font-weight: bold;
+}
+.card {
+  margin-bottom: 5px;
+}

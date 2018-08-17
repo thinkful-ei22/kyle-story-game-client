@@ -1,0 +1,10 @@
+.newGameContainer {
+  padding: 1em;
+}
+.newGame {
+  background-color: hsl(272, 58%, 53%);
+  border-radius: 1em;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1em;
+}

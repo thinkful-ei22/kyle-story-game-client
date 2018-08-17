@@ -1,0 +1,6 @@
+.completedGame {
+  margin: 5px;
+  text-align: center;
+  text-shadow: 0 2px 2px hsla(279, 90%, 10%, 0.35);
+  text-transform: uppercase;
+}

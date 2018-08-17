@@ -1,0 +1,17 @@
+.playerLoading {
+  padding: .25em 20px;
+  background-color: white;
+  border-radius: 1em;
+  color: hsl(259, 92%, 15%);
+  margin: .4em auto;
+  max-width: 320px;
+  font-size: 1.7em;
+  box-shadow: 0 3px 6px hsla(259, 92%, 20%, 0.2),
+              1px 8px 18px hsla(259, 92%, 25%, 0.2);
+}
+.avatar {
+  width: 1.5em;
+  height: 1.5em;
+  padding-right: 10px;
+  vertical-align: middle;
+}

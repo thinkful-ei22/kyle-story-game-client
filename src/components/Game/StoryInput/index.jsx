@@ -1,6 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { reduxForm, Field } from 'redux-form';
+
+import './storyInput.css';
+import { minLength } from '../../../validators';
 import Input from '../../utils/Input';
 import {serverAddSentence, nextPrompt} from '../../../actions/sentence';
 
@@ -33,13 +36,14 @@ export class StoryInput extends React.Component {
           type='text'
           id='sentence'
           name='sentence'
-          label='Continue the story'
-          element='input'
+          label='Continue the story :'
+          element='textarea'
           component={Input}
-          /* TODO: validate={[length]} */
+          validate={[minLength]}
         />
         <button
           type='submit'
+          className='btn btn--add-sentence'
           disabled={
             this.props.pristine ||
             this.props.submitting

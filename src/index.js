@@ -15,10 +15,11 @@ import createSocketIoMiddleware from 'redux-socket.io';
 
 import 'normalize.css';
 import 'font-awesome/css/font-awesome.css';
-import './float-grid.css';
+// import './float-grid.css';
 import './index.css';
-import Game from './components/Game';
+import Header from './components/Header';
 import NewGame from './components/NewGame';
+import Game from './components/Game';
 import {WEBSOCKET_SERVER_URI} from './constants';
 import {rootReducer} from './reducers';
 import LocalStorage from './middlewares/localStorage';
@@ -44,7 +45,7 @@ ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
       <main>
-        <h1>What's the Story?</h1>
+        <Route path='/' component={Header} />
         <Route exact path='/' component={NewGame} />
         <Route exact path='/:roomCode' component={Game} />
       </main>

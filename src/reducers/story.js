@@ -3,8 +3,8 @@ import * as types from '../constants/actionTypes';
 const initialState = {
   upcoming: [
     {
-      storyId: 'test',
-      prompt: 'test'
+      storyId: '',
+      prompt: ''
     }
   ],
   stories: []
@@ -68,6 +68,12 @@ export const storyReducer = (state = initialState, action) => {
           return story;
         }
       })
+    });
+  case types.ADD_SENTENCE_ERROR:
+    console.log('ADD_SENTENCE_ERROR reduced');
+    console.log('error: ', action.error);
+    return Object.assign({}, state, {
+      error: action.error
     });
   case types.NEXT_PROMPT:
     console.log('NEXT_PROMPT reduced');
