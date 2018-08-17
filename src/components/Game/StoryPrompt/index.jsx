@@ -15,7 +15,7 @@ const mapStateToProps = state => {
   const upcoming = state.story.upcoming[0];
   const prompt = upcoming
     ? upcoming.prompt
-    : 'Waiting for the next player...';
+    : 'Waiting for a story...';
   return {
     upcomingPrompt: prompt
   };};
