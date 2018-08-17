@@ -22,7 +22,7 @@ import NewGame from './components/NewGame';
 import Game from './components/Game';
 import {WEBSOCKET_SERVER_URI} from './constants';
 import {rootReducer} from './reducers';
-import LocalStorage from './middlewares/localStorage';
+import SessionStorage from './middlewares/localStorage';
 import registerServiceWorker from './registerServiceWorker';
 
 let socket = io(WEBSOCKET_SERVER_URI);
@@ -38,7 +38,7 @@ const routingMiddleware = routerMiddleware(history);
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = createStore(rootReducer, composeEnhancers(
-  applyMiddleware(routingMiddleware, socketIoMiddleware, LocalStorage, thunk))
+  applyMiddleware(routingMiddleware, socketIoMiddleware, SessionStorage, thunk))
 );
 
 ReactDOM.render(
