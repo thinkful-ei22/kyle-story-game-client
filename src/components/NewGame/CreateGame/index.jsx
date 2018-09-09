@@ -21,6 +21,7 @@ export class CreateGame extends React.Component {
     return (
       <div className='container'>
         {loading}
+        <p className='newGameInvitation'>No Room Code? Start a new game!</p>
         <form
           id='createGame'
           onSubmit={this.props.handleSubmit(values =>

@@ -1,6 +1,7 @@
-.btn--create-game {
-  margin-top: 60%;
-}
 #createGame {
+  text-align: center;
+}
+.newGameInvitation {
+  margin-top: 60%;
   text-align: center;
 }

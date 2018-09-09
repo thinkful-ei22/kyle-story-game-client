@@ -1,6 +1,7 @@
 import * as types from '../constants/actionTypes';
 
 const initialState = {
+  showRules: true,
   loading: false,
   error: null
 };
@@ -86,6 +87,11 @@ export const gameSessionReducer = (state = initialState, action) => {
     console.log('UPDATE_PLAYERS reduced');
     return Object.assign({}, state, {
       players: [...action.players]
+    });
+  case types.TOGGLE_MODAL:
+    console.log('TOGGLE_MODAL reduced');
+    return Object.assign({}, state, {
+      showRules: !state.showRules
     });
   default:
     return state;

@@ -32,3 +32,4 @@ export const SET_ROOM_CODE = 'SET_ROOM_CODE';
 export const UPDATE_PLAYERS = 'UPDATE_PLAYERS';
 export const FINISH_GAME = 'FINISH_GAME';
 export const SELECT_STORY = 'SELECT_STORY';
+export const TOGGLE_MODAL = 'TOGGLE_MODAL';

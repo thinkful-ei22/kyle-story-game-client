@@ -117,3 +117,7 @@ export const selectStory = (storyId) => ({
   type: types.SELECT_STORY,
   storyId
 });
+
+export const toggleModal = () => ({
+  type: types.TOGGLE_MODAL
+});

@@ -1,0 +1,13 @@
+.topNav {
+  margin: 0;
+  padding-left: 1.5em;
+}
+.modalToggle {
+  border: none;
+  background-color: inherit;
+  color: white;
+  float: right;
+  font-size: 3em;
+  margin: 0 .5em 0 0;
+  padding: 0;
+}
