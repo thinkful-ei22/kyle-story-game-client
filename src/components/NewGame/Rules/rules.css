@@ -1,0 +1,62 @@
+.rules {
+  color: #fff;
+  position: relative;
+  height: auto;
+  border-radius: 3px;
+  top: 0.5em;
+  margin: 10px auto;
+}
+
+.rules h3 {
+  margin: 0;
+  padding: 0.4em;
+  text-align: center;
+  font-size: 2.4em;
+  font-weight: 300;
+  opacity: 0.8;
+  background: rgba(0,0,0,0.1);
+  border-radius: 3px 3px 0 0;
+}
+
+.rules h4 {
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: 300;
+  margin: 0;
+  opacity: 0.8;
+  padding: 0.4em;
+  background: rgba(0,0,0,0.1);
+}
+
+.rules > div {
+  padding: 15px 40px 30px;
+  margin: 0;
+  font-weight: 300;
+}
+
+.rules > div p {
+  margin: 0;
+  padding: 10px 0;
+  line-height: 1.5em;
+  text-align: justify;
+}
+
+.rules > div ul {
+  margin-bottom: -30px;
+  padding: 0 0 30px 20px;
+  text-align: left;
+}
+
+.rules > div ul li {
+  padding: 5px 0;
+  display: block;	
+  list-style-type: disc;
+  line-height: 1.5em;
+}
+
+.hidden {
+  display: none;
+}
+.centered {
+  margin-left: 10%;
+}

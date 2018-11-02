@@ -24,12 +24,12 @@ export class StorySelector extends React.Component {
       </li>
     ));
     return (
-      <div className='storySelector clearfix'>
+      <section className='storySelector clearfix'>
         <span>Story :</span>
         <ul>
           {storyButtons}
         </ul>
-      </div>
+      </section>
     );
   }
 }

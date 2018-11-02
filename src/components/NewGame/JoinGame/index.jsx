@@ -12,7 +12,6 @@ export class JoinGame extends React.Component {
 
   onSubmit(values) {
     const roomCode = values.roomCode;
-    console.log(roomCode);
     this.props.dispatch(setRoomCode(roomCode));
     this.props.dispatch(push(`/${roomCode}`));
   }

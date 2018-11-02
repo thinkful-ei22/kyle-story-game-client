@@ -1,10 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import { TopNav } from '../TopNav';
+import Rules from '../Rules';
 
-describe('<TopNav />', () => {
+describe('<Rules />', () => {
   it('should render without crashing', () => {
-    const wrapper = shallow(<TopNav />);
+    const wrapper = shallow(<Rules />);
   });
 });

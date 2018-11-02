@@ -44,10 +44,10 @@ export class Game extends React.Component {
 
     return (
       <div className='gameContainer'>
-        <div className="Game">
+        <section className="Game">
           <h2 className='playerName'><span>name: </span>{this.props.playerName}</h2>
           {contents}
-        </div>
+        </section>
       </div>
     );
   }

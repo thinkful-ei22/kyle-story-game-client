@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import './newGame.css';
 import JoinGame from './JoinGame';
 import CreateGame from './CreateGame';
+import Rules from './Rules';
 
 import { refreshPlayerName } from '../../actions/gameSession';
 
@@ -16,10 +17,11 @@ export class NewGame extends React.Component {
   render() {
     return (
       <div className='newGameContainer'>
-        <div className='newGame'>
+        <section className='newGame'>
           <JoinGame />
           <CreateGame />
-        </div>
+          <Rules />
+        </section>
       </div>
     );
   }

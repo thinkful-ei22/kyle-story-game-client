@@ -26,12 +26,12 @@ export class LoadingScreen extends React.Component {
       );
     } else {
       return (
-        <div className='loadingScreen'>
+        <section className='loadingScreen'>
           <RoomDisplay />
           <PlayersLoadingList />
           <h3 className='waitingMessage'>Waiting for more players...</h3>
           <StartGameButton />
-        </div>
+        </section>
       );
     }
   }

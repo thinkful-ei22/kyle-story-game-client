@@ -8,12 +8,12 @@ import StartOverButton from './StartOverButton';
 
 export function CompletionScreen(props) {
   return (
-    <div className='completionScreen'>
+    <section className='completionScreen'>
       <h2 className='completedGame'>Game Completed</h2>
       <StorySelector />
       <StoryDisplay />
       <StartOverButton />
-    </div>
+    </section>
   );
 }
 
