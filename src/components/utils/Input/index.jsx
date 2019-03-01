@@ -3,9 +3,18 @@ import React from 'react';
 import './input.css';
 
 export default class Input extends React.Component {
+  constructor() {
+    super();
+    this.autosize = this.autosize.bind(this);
+  }
   componentDidUpdate(prevProps) {
     if (!prevProps.meta.active && this.props.meta.active) {
       this.input.focus();
+    }
+  }
+  autosize(e) {
+    if (this.props.element === 'textarea') {
+      this.style = { height: `${e.target.scrollHeight}px` };
     }
   }
   render() {
@@ -40,6 +49,8 @@ export default class Input extends React.Component {
           className={this.props.elementClass}
           type={this.props.type}
           ref={input => (this.input = input)}
+          onKeyDown={this.autosize}
+          style={this.style}
         >
           {this.props.children}
         </Element>
